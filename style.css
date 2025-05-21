@@ -353,6 +353,29 @@ footer {
     background: transparent;
 }
 
+.add-to-cart-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.add-to-cart-btn i {
+    font-size: 1.1rem;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     .product-card {
