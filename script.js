@@ -36,3 +36,28 @@ function contact() {
 
     window.location.href = mailto;
 }
+
+
+// Scroll Animation für Produkte
+function checkScroll() {
+    const scrollItems = document.querySelectorAll('.product-scroll-item');
+    const windowHeight = window.innerHeight;
+    const scrollPosition = window.scrollY || window.pageYOffset;
+    
+    scrollItems.forEach((item, index) => {
+        const itemPosition = item.getBoundingClientRect().top + scrollPosition;
+        const itemHeight = item.offsetHeight;
+        
+        // Triggerpunkt (Mitte des Elements)
+        const triggerPoint = scrollPosition + windowHeight - itemHeight / 2;
+        
+        if (triggerPoint > itemPosition) {
+            item.classList.add('visible');
+        }
+    });
+}
+
+// Initial check when page loads
+document.addEventListener('DOMContentLoaded', checkScroll);
+// Check on scroll
+window.addEventListener('scroll', checkScroll);
