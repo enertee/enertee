@@ -28,7 +28,11 @@ window.onscroll = function() {
 
 
 function contact() {
-    let name = document.getElementById("name");
-    let email = document.getElementById("email");
-    let msg = document.getElementById("msg");
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let msg = document.getElementById("msg").value;
+
+    let mailtoLink = `mailto:enertee.office@gmail.com?subject=${encodeURIComponent(name)}&body=${encodeURIComponent(msg)}%0A%0AAntwort an: ${encodeURIComponent(email)}`;
+
+    window.location.href = mailtoLink;
 }
