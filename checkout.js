@@ -1,0 +1,56 @@
+const products = [
+  { name: "Kamillen Power", price: 2.99 },
+  { name: "Herbs Blast", price: 3.29 },
+  { name: "Elder Boost", price: 2.79 },
+  { name: "Mint Refresh", price: 2.89 }
+];
+
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+const discountApplied = localStorage.getItem("discount") === "true";
+
+const itemsList = document.getElementById("checkout-items");
+const totalEl = document.getElementById("checkout-total");
+
+function getCartCounts() {
+  const counts = {};
+  cart.forEach(item => {
+    counts[item.name] = (counts[item.name] || 0) + 1;
+  });
+  return counts;
+}
+
+function updateCheckoutView() {
+  const counts = getCartCounts();
+  itemsList.innerHTML = "";
+
+  let subtotal = 0;
+
+  for (const [name, count] of Object.entries(counts)) {
+    const product = products.find(p => p.name === name);
+    if (!product) continue;
+
+    const itemTotal = product.price * count;
+    subtotal += itemTotal;
+
+    const displayPrice = discountApplied ? (itemTotal * 0.5).toFixed(2) : itemTotal.toFixed(2);
+
+    const li = document.createElement("li");
+    li.textContent = `${name} x${count} - ${displayPrice} €`;
+    itemsList.appendChild(li);
+  }
+
+  if (discountApplied) subtotal *= 0.5;
+  totalEl.textContent = `Summe: ${subtotal.toFixed(2)} € (inkl. MwSt.)`;
+}
+
+updateCheckoutView();
+document.getElementById("apply-coupon").addEventListener("click", () => {
+  const input = document.getElementById("coupon-input").value.trim().toLowerCase();
+  if (input === "ich mag männer") {
+    localStorage.setItem("discount", "true");
+    alert("✔️ Rabatt aktiviert: 50%!");
+    window.location.reload();
+  } else {
+    alert("Ungültiger Rabattcode");
+  }
+});

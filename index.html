@@ -8,6 +8,13 @@
     <title>ENERTEE - TEE UP YOUR ENERGY</title>
 </head>
 <body>
+    <aside id="cart-sidebar" hidden>
+        <h3>Warenkorb</h3>
+        <ul id="cart-items" style="list-style: none; padding: 0;"></ul>
+        <p id="cart-total">Summe: 0.00 € (inkl. MwSt.)</p>
+        <a href="kassa.html">Zur Kassa</a>
+    </aside>
+
     <header id="header">
         <div class="logo">
             ENERTEE
@@ -18,6 +25,7 @@
             <a href="#about">Über uns</a>
             <a href="#team">Team</a>
             <a href="#contact">Kontakt</a>
+            <button id="toggle-cart" title="Warenkorb anzeigen" aria-label="Warenkorb anzeigen" onclick="showCart()">Dein Warenkorb</button>
         </nav>
     </header>
     
@@ -41,7 +49,7 @@
                 <div class="product-ingredients right">
                     <div class="ingredients-content">
                         <h3>Kamillen Power</h3>
-                        <button class="add-to-cart-btn">
+                        <button class="add-to-cart-btn" onclick="addToCart('Kamillen Power')">
                             <i class="fas fa-shopping-cart"></i> Zum Warenkorb hinzufügen
                         </button>
                         <div class="ingredients-content">
@@ -78,7 +86,7 @@
                 <div class="product-ingredients left">
                     <div class="ingredients-content">
                         <h3>Herbs Blast</h3>
-                        <button class="add-to-cart-btn">
+                        <button class="add-to-cart-btn" onclick="addToCart('Herbs Blast')">
                             <i class="fas fa-shopping-cart"></i> Zum Warenkorb hinzufügen
                         </button>
                         <div class="ingredients-content">
@@ -114,7 +122,7 @@
                 <div class="product-ingredients left">
                     <div class="ingredients-content">
                         <h3>Elder Boost</h3>
-                        <button class="add-to-cart-btn">
+                        <button class="add-to-cart-btn" onclick="addToCart('Elder Boost')">
                             <i class="fas fa-shopping-cart"></i> Zum Warenkorb hinzufügen
                         </button>
                         <div class="ingredients-content">
@@ -149,7 +157,7 @@
                 <div class="product-ingredients left">
                     <div class="ingredients-content">
                         <h3>Mint Refresh</h3>
-                        <button class="add-to-cart-btn">
+                        <button class="add-to-cart-btn" onclick="addToCart('Mint Refresh')">
                             <i class="fas fa-shopping-cart"></i> Zum Warenkorb hinzufügen
                         </button>
                         <div class="ingredients-content">
@@ -224,7 +232,7 @@
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-        <p class="copyright">&copy; 2025 ENERTEE. Alle Rechte vorbehalten. <a href="https://toaster.rf.gd/?i=1" style="color: white; text-decoration: none;">Unsere Partner</a></p>
+        <p class="copyright">&copy; 2025 ENERTEE. Alle Rechte vorbehalten. <a href="https://toaster.rf.gd/?i=1" style="text-decoration: none;" class="copyright">Unsere Partner</a></p>
     </footer>
     
     <script src="script.js"></script>
