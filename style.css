@@ -1,5 +1,6 @@
 * {
     transition: top .3s ease-in-out;
+    max-width: 80vw;
 }
 
 :root {
