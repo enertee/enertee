@@ -46,7 +46,7 @@ function updateCheckoutView() {
 updateCheckoutView();
 document.getElementById("apply-coupon").addEventListener("click", () => {
   const input = document.getElementById("coupon-input").value.trim().toLowerCase();
-  if (input === "ich mag männer") {
+  if (input === toAscii("ZW5lcnRlZTUw")) {
     localStorage.setItem("discount", "true");
     alert("✔️ Rabatt aktiviert: 50%!");
     window.location.reload();
@@ -54,3 +54,29 @@ document.getElementById("apply-coupon").addEventListener("click", () => {
     alert("Ungültiger Rabattcode");
   }
 });
+
+function toCheckout() {
+  document.getElementById("checkout-popup").style.display = "flex";
+}
+
+function closeCheckout() {
+  document.getElementById("checkout-popup").style.display = "none";
+}
+
+function submitPayment() {
+  alert("Zahlung abgeschickt!");
+  closeCheckout();
+}
+
+
+function toAscii(base64String) {
+  try {
+    // 1. Base64 decodieren → binärer String
+    let decoded = atob(base64String);
+    return decoded;
+  } catch (e) {
+    console.error("Ungültiger Base64-String:", e);
+    return null;
+  }
+}
+
