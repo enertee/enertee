@@ -11,6 +11,10 @@
     --text-gray: #ccc;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: var(--dark-bg);
