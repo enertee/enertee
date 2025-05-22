@@ -1,6 +1,5 @@
 * {
     transition: top .3s ease-in-out;
-    margin: 0;
 }
 
 :root {
@@ -19,6 +18,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 header {
