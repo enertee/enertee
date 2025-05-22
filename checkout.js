@@ -64,7 +64,10 @@ function closeCheckout() {
 }
 
 function submitPayment() {
-  alert("Zahlung abgeschickt!");
+  alert("Diese Aktion ist ein nur Zur Veranschaulichung implementiertes System. Es wurden weder Ihre Kreditkartendaten gespeichert, noch wurde ihnen ein Betrag abgebucht. Weitere Hinweise auf: ");
+  if (confirm("https://www.enertee.com/README.md")) {
+    window.open("https://www.enertee.com/README.md", "_blank");
+  }
   localStorage.removeItem("cart");
   closeCheckout();
 }
