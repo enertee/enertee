@@ -65,6 +65,7 @@ function closeCheckout() {
 
 function submitPayment() {
   alert("Zahlung abgeschickt!");
+  localStorage.removeItem("cart");
   closeCheckout();
 }
 
