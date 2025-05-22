@@ -436,6 +436,11 @@ footer {
     .product-content {
         padding: 30px 15px;
     }
+    
+    #cart-sidebar {
+        height: 10vh;
+        width: 30vw;
+    }
 }
 @media (max-width: 768px) {
     .hero h1 {
