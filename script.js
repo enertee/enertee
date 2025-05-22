@@ -12,19 +12,22 @@ document.querySelectorAll('.toggle-btn').forEach(button => {
 
 
 let lastScrollTop = 0;
-const header = document.querySelector("header");
+const header = document.getElementById("header");
 
 window.onscroll = function() {
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
     if (currentScroll > lastScrollTop) {
-        document.getElementById("header").style = "position: top;";
+        header.style.position = "absolute";
+        header.style.top = "-100px";
     } else {
-        document.getElementById("header").style = "position: sticky;";
+        header.style.position = "fixed";
+        header.style.top = "0";
     }
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 };
+
 
 
 function contact() {

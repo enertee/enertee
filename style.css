@@ -36,7 +36,7 @@ header {
 }
 
 .hide-header {
-    top: -100px; /* oder - dein Header-Höhe */
+    top: -100px;
 }
 
 .show-header {
@@ -410,6 +410,29 @@ footer {
     font-size: 1.1rem;
 }
 
+#toggle-cart:focus {
+    outline: none;
+}
+
+#toggle-cart:hover {
+    color: var(--primary-color);
+}
+
+#toggle-car::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+#toggle-car:hover::after {
+    width: 100%;
+}
+
 #cart-sidebar {
     display: none;
     position: fixed;
@@ -426,8 +449,19 @@ footer {
 
 #close {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s ease-in-out;
+}
+
+#close:hover {
+    background-color: var(--secondary-color);
+    transition: 0.3s ease-in-out;
 }
 
 .hidden {
