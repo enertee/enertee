@@ -424,6 +424,12 @@ footer {
     z-index: 9999;
 }
 
+#close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .hidden {
     visibility: hidden;
 }
