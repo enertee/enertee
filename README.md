@@ -1,32 +1,26 @@
-# README for enertee.com
+# Enertee - Tea up ya Energy
 
-Welcome! This is the README file for the **enertee.com** website.
+## Überblick
+Enertee ist eine **Fiktive** Marke, gegründet von Daniel Naderer, Felix Pöckl und Thomas Rhomberg
+im zuge eines Projekts im Fachbereich Betriebswirtschaften und **Marketing**. Die Firma hinter 
+Enertee nennt sich Enertee GbR. 
 
-## What is enertee.com?
+## Nutzen von Enertee
+Der Prinzipielle Nutzen von Enertee ist das Erhalten einer guten Note für eben das Projekt. Nach 
+Beendung des Projekts ist **keine** weiterführung der Firma in sicht, dies kann sich jedoch noch 
+Ändern.
 
-enertee.com is a platform dedicated to helping people easily understand, access, and promote renewable energy solutions. The website offers information, tools, and resources aimed at supporting a sustainable and clean energy future.
+## Zukunft von Enertee
+Das Github Projekt sowie die domain (https://www.enertee.com) werden weiterhin bis **21.05.2026** 
+online bleiben. Danach wird sich herausstellen, ob an Enertee weitergearbeitet wird oder nicht.
 
-## Features
+## Abschließende Worte
+Wir bedanken uns bei unseren Partnern (Clear Toast GbR) für die Unterstützung mit unserer Website.
 
-- Educational content about renewable energy sources  
-- Tools to calculate and optimize energy usage  
-- Resources for individuals and businesses to adopt clean energy  
-- Latest news and updates on energy innovations
+Wir hoffen, dass vielleicht in Zukunft weiter an Enertee gearbeitet wird und werden uns bemühen dies
+auch umsetzen zu Können.
 
-## Getting Started
+Für weitere Fragen stehen wir gerne unter [enertee.office@gmail.com](mailto:enertee.office@gmail.com) zur verfügung
 
-To explore the website, simply open your browser and visit [https://enertee.com](https://enertee.com). No registration is required to access most content.
+&copy; Enertee GbR 2025
 
-## Technologies Used
-
-- Frontend: HTML, CSS, JavaScript  
-- Backend: (if applicable, insert relevant backend tech here)  
-- APIs: (if applicable, list APIs used)  
-
-## Contributing
-
-If you want to contribute to the project or suggest improvements, feel free to reach out via the contact form on the website or open an issue if the project is on GitHub.
-
-## Contact
-
-For questions or support, contact us at info@enertee.com.
