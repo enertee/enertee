@@ -1,6 +1,5 @@
 * {
     transition: top .3s ease-in-out;
-    width: 100%;
 }
 
 :root {
@@ -28,6 +27,7 @@ header {
     position: top;
     top: 0;
     z-index: 100;
+    width: 100vw;
 }
 
 .hide-header {
