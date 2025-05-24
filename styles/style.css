@@ -473,6 +473,29 @@ footer {
     visibility: hidden;
 }
 
+
+
+a.social-link {
+    font-size: 32px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+a.facebook-link { color: var(--primary-color); }
+a.facebook-link:hover { color: #0e5dd8; transform: scale(1.2); }
+
+a.instagram-link { color: var(--primary-color); }
+a.instagram-link:hover { color: #c13584; transform: scale(1.2); }
+
+a.twitter-link { color: var(--primary-color); }
+a.twitter-link:hover { color: #0d8ddb; transform: scale(1.2); }
+
+a.youtube-link { color: var(--primary-color); }
+a.youtube-link:hover { color: #cc0000; transform: scale(1.2); }
+
+
+
 @media (max-width: 768px) {
     .product-image-full {
         flex: 0 0 50vh;
