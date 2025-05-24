@@ -9,7 +9,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="Logo.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init('fyBfe925vvU5-IvJF'); // Ersetze hier mit deiner User ID von EmailJS
+        })();
+
+        function contact() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('msg').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Bitte fülle alle Felder aus.');
+                return;
+            }
+
+            emailjs.send('service_dqbm9ih', 'template_u9qc9wm', {
+                from_name: name,
+                from_email: email,
+                message: message
+            })
+                .then(function(response) {
+                    alert('Danke! Deine Nachricht wurde gesendet.');
+                    // Optional: Formular zurücksetzen
+                    document.querySelector('#contact form').reset();
+                }, function(error) {
+                    alert('Beim Senden ist ein Fehler aufgetreten. Bitte versuche es später erneut.');
+                    console.error('EmailJS Fehler:', error);
+                });
+        }
+    </script>
     <title>ENERTEE - TEE UP YOUR ENERGY</title>
+
 </head>
 <body>
     <aside id="cart-sidebar" style="display: none;" hidden>
@@ -207,25 +239,26 @@
             <!-- Team-Mitglieder würden hier eingefügt werden -->
         </div>
     </section>
-    
+
     <section id="contact">
         <h2>Kontakt</h2>
         <div style="max-width: 600px; margin: 0 auto;">
             <form onsubmit="contact(); return false;">
                 <div style="margin-bottom: 20px;">
-                    <input id="name" type="text" placeholder="Name" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #444; background: #222; color: white;">
+                    <input id="name" type="text" placeholder="Name" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #444; background: #222; color: white;" required>
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <input id="email" type="email" placeholder="E-Mail" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #444; background: #222; color: white;">
+                    <input id="email" type="email" placeholder="E-Mail" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #444; background: #222; color: white;" required>
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <textarea id="msg" placeholder="Nachricht" rows="5" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #444; background: #222; color: white;"></textarea>
+                    <textarea id="msg" placeholder="Nachricht" rows="5" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #444; background: #222; color: white;" required></textarea>
                 </div>
                 <button type="submit" class="btn" style="border: none; cursor: pointer;">Nachricht senden</button>
             </form>
         </div>
     </section>
-    
+
+
     <footer>
         <div class="logo" style="margin-bottom: 20px;">
             ENERTEE
