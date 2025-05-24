@@ -3,3 +3,7 @@ Versions and Changes
 24.05.25
     - Added new font 'Anton' for logo in style.css
     - optimized cardpay div vor kassa.html
+    - made some things responsive
+    - removed kontact form
+    - made the scroll behaviour smooth
+    - organized the system
