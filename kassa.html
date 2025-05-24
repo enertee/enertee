@@ -35,7 +35,7 @@
       <label for="card-number" style="margin-top: 10px; display: block;">Kartennummer:</label>
       <input id="card-number" type="text" placeholder="1234 5678 9012 3456" maxlength="19"
              style="width: 90%; padding: 10px; border: 2px solid #FF217B; border-radius: 8px;
-             background-color: #1a1a1a; color: white; font-size: 1rem; margin-bottom: 10px;" />
+             background-color: #1a1a1a; color: white; font-size: 1rem; margin-bottom: 10px;"/>
 
       <label for="card-expiry" style="margin-top: 10px; display: block;">Ablaufdatum:</label>
       <input id="card-expiry" type="text" placeholder="MM/YY" maxlength="5"
@@ -79,6 +79,72 @@
 
     function closeCheckout() {
       document.getElementById("checkout-popup").style.display = "none";
+    }
+
+    document.getElementById('card-number').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '').substring(0, 16);
+      let formatted = value.match(/.{1,4}/g)?.join(' ') || '';
+      e.target.value = formatted;
+
+      let digits = value.split('').reverse().map(Number);
+      let sum = 0;
+
+      for (let i = 0; i < digits.length; i++) {
+        let digit = digits[i];
+        if (i % 2 === 1) {
+          digit *= 2;
+          if (digit > 9) digit -= 9;
+        }
+        sum += digit;
+      }
+
+      if (value.length === 16 && sum % 10 !== 0) {
+        e.target.style.border = "2px solid red";
+      } else {
+        e.target.style.border = "";
+      }
+    });
+
+
+    document.getElementById('card-expiry').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '').substring(0, 4);
+      if (value.length > 2) {
+        value = value.slice(0,2) + '/' + value.slice(2);
+      }
+      e.target.value = value;
+      if (isExpired(value)) {
+        e.target.style.border = "2px solid red";
+      } else {
+        e.target.style.border = "";
+      }
+
+
+    });
+
+    document.getElementById('card-cvv').addEventListener('input', function(e) {
+      e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+    });
+
+    function isExpired(mmYY) {
+      // Check format MM/YY
+      if (!/^\d{2}\/\d{2}$/.test(mmYY)) return true;
+
+      const [monthStr, yearStr] = mmYY.split('/');
+      const month = parseInt(monthStr, 10);
+      const year = parseInt(yearStr, 10);
+
+      // Validate month and year
+      if (isNaN(month) || isNaN(year) || month < 1 || month > 12) return true;
+
+      // Convert 2-digit year to 4-digit (assumes 2000-2099)
+      const fullYear = 2000 + year;
+
+      // Expiry = end of the given month
+      const expiryDate = new Date(fullYear, month, 0);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // strip time
+
+      return expiryDate < today;
     }
   </script>
   <script src="checkout.js"></script>
