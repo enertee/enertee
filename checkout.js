@@ -1,12 +1,10 @@
 const products = [
-  { name: "Kamillen Power", price: 2.99 },
-  { name: "Herbs Blast", price: 3.29 },
-  { name: "Elder Boost", price: 2.79 },
-  { name: "Mint Refresh", price: 2.89 }
+  { name: "Kamillen Power", price: 1.10 },
+  { name: "Herbs Blast", price: 0.90 },
+  { name: "Elder Boost", price: 0.80 },
+  { name: "Mint Refresh", price: 0.80 }
 ];
-
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
-const discountApplied = localStorage.getItem("discount") === "true";
 
 const itemsList = document.getElementById("checkout-items");
 const totalEl = document.getElementById("checkout-total");
@@ -32,39 +30,52 @@ function updateCheckoutView() {
     const itemTotal = product.price * count;
     subtotal += itemTotal;
 
-    const displayPrice = discountApplied ? (itemTotal * 0.5).toFixed(2) : itemTotal.toFixed(2);
+    const displayPrice = localStorage.getItem("discountApplied") === "true" ? (itemTotal * 0.5).toFixed(2) : itemTotal.toFixed(2);
 
     const li = document.createElement("li");
     li.textContent = `${name} x${count} - ${displayPrice} €`;
     itemsList.appendChild(li);
   }
 
-  if (discountApplied) subtotal *= 0.5;
+  if (localStorage.getItem("discountApplied") === "true") subtotal *= 0.5;
   totalEl.textContent = `Summe: ${subtotal.toFixed(2)} € (inkl. MwSt.)`;
 }
 
 updateCheckoutView();
 document.getElementById("apply-coupon").addEventListener("click", () => {
   const input = document.getElementById("coupon-input").value.trim().toLowerCase();
-  if (input === toAscii("ZW5lcnRlZTUw")) {
+  if (input === toAscii("ZW5lcnRlZTUw") && localStorage.getItem("discount") !== "true") {
     localStorage.setItem("discount", "true");
     alert("✔️ Rabatt aktiviert: 50%!");
+    localStorage.setItem("discountApplied", "true");
     window.location.reload();
-  } else {
-    alert("Ungültiger Rabattcode");
+  } else if (input === "" || input !== toAscii("ZW5lcnRlZTUw")) {
+    alert("Ungülitger Rabattcode!");
+    localStorage.setItem("discountApplied", "false");
+  } else if (localStorage.getItem("discount") === "true") {
+    alert("Rabattcode wurde bereits aktiviert!")
+    localStorage.setItem("discountApplied", "false");
   }
 });
 
 function toCheckout() {
   document.getElementById("checkout-popup").style.display = "flex";
+  document.getElementById("coupon").style.display = "none";
 }
 
 function closeCheckout() {
   document.getElementById("checkout-popup").style.display = "none";
+  document.getElementById("coupon").style.display = "flex";
+  localStorage.setItem("discountApplied", "false");
+  window.location.reload();
 }
 
 function submitPayment() {
-  alert("Zahlung abgeschickt!");
+  alert("Diese Aktion ist ein nur Zur Veranschaulichung implementiertes System. Es wurden weder Ihre Kreditkartendaten gespeichert, noch wurde ihnen ein Betrag abgebucht. Weitere Hinweise auf: ");
+  if (confirm("https://www.enertee.com/README.md")) {
+    window.open("https://www.enertee.com/README.md", "_blank");
+  }
+  localStorage.removeItem("cart");
   closeCheckout();
 }
 

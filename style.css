@@ -18,6 +18,7 @@ html {
 body {
     font-family: 'Arial', sans-serif;
     background-color: var(--dark-bg);
+    font-weight: bold;
     color: var(--text-light);
     margin: 0;
     padding: 0;
@@ -35,6 +36,7 @@ header {
     width: 100%;
 }
 
+
 .hide-header {
     top: -100px;
 }
@@ -45,11 +47,11 @@ header {
 
 
 .logo {
-    font-family: 'Arial Black', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 2.5rem;
     text-align: center;
     color: var(--primary-color);
-    letter-spacing: 1px;
+    letter-spacing: .5rem;
 }
 
 .logo span {
@@ -75,6 +77,7 @@ nav a {
     position: relative;
     padding: 5px 0;
 }
+
 
 nav a:hover {
     color: var(--primary-color);
@@ -130,8 +133,8 @@ nav a:hover::after {
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.3s;
     font-size: 1rem;
+    transition: all 0.3s;
 }
 
 .btn:hover {
@@ -407,6 +410,7 @@ footer {
     padding-left: 10%;
     background-color: var(--darker-bg);
     cursor: pointer;
+    font-weight: bold;
     font-size: 1.1rem;
 }
 

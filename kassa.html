@@ -12,7 +12,7 @@
     <h1>Kassa</h1>
     <a href="index.html" class="back-button">← Zurück zum Shop</a>
   </header>
-  <div class="coupon-wrapper">
+  <div class="coupon-wrapper" id="coupon" style>
     <input type="text" id="coupon-input" placeholder="Rabattcode eingeben" />
     <button id="apply-coupon">Einlösen</button>
   </div>
@@ -34,22 +34,22 @@
 
       <label for="card-number" style="margin-top: 10px; display: block;">Kartennummer:</label>
       <input id="card-number" type="text" placeholder="1234 5678 9012 3456" maxlength="19"
-             style="width: 100%; padding: 10px; border: 2px solid #FF217B; border-radius: 8px;
+             style="width: 90%; padding: 10px; border: 2px solid #FF217B; border-radius: 8px;
              background-color: #1a1a1a; color: white; font-size: 1rem; margin-bottom: 10px;" />
 
       <label for="card-expiry" style="margin-top: 10px; display: block;">Ablaufdatum:</label>
       <input id="card-expiry" type="text" placeholder="MM/YY" maxlength="5"
-             style="width: 100%; padding: 10px; border: 2px solid #FF217B; border-radius: 8px;
+             style="width: 90%; padding: 10px; border: 2px solid #FF217B; border-radius: 8px;
              background-color: #1a1a1a; color: white; font-size: 1rem; margin-bottom: 10px;" />
 
       <label for="card-cvv" style="margin-top: 10px; display: block;">CVV:</label>
       <input id="card-cvv" type="text" placeholder="123" maxlength="4"
-             style="width: 100%; padding: 10px; border: 2px solid #FF217B; border-radius: 8px;
+             style="width: 90%; padding: 10px; border: 2px solid #FF217B; border-radius: 8px;
              background-color: #1a1a1a; color: white; font-size: 1rem; margin-bottom: 10px;" />
 
       <label for="card-name" style="margin-top: 10px; display: block;">Name auf der Karte:</label>
       <input id="card-name" type="text" placeholder="Max Mustermann"
-             style="width: 100%; padding: 10px; border: 2px solid #FF217B; border-radius: 8px;
+             style="width: 90%; padding: 10px; border: 2px solid #FF217B; border-radius: 8px;
              background-color: #1a1a1a; color: white; font-size: 1rem; margin-bottom: 20px;" />
 
       <button onclick="submitPayment()"

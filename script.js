@@ -67,11 +67,11 @@ document.querySelectorAll('.toggle-btn').forEach(button => {
 
 
 const products = [
-    { name: "Kamillen Power", price: 2.99 },
-    { name: "Herbs Blast", price: 3.29 },
-    { name: "Elder Boost", price: 2.79 },
-    { name: "Mint Refresh", price: 2.89 },
-  ];
+    { name: "Kamillen Power", price: 1.10 },
+    { name: "Herbs Blast", price: 0.90 },
+    { name: "Elder Boost", price: 0.80 },
+    { name: "Mint Refresh", price: 0.80 }
+];
   // DOM-Zugriffe
   const cartItems = document.getElementById("cart-items");
   const cartTotalEl = document.getElementById("cart-total");
