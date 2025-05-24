@@ -9,52 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="Logo.png" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-        (function(){
-            emailjs.init('fyBfe925vvU5-IvJF'); // Ersetze hier mit deiner User ID von EmailJS
-        })();
-
-        function contact() {
-            if (!confirm("Sind sie sicher. Sie können nur noch " + (3-parseInt(localStorage.getItem("contacted"))) + " Nachrichten senden!")) {
-                return;
-            }
-            if (!localStorage.getItem("contacted")) {
-                localStorage.setItem("contacted", "0");
-            }
-
-            if (parseInt(localStorage.getItem("contacted")) >= 3) {
-                alert("Sie haben das Limit an möglichen Kontakten überschritten. Sie können uns aber manuell unter enertee.office@gmail.com erreichen.");
-                return;
-            } else {
-                let val = parseInt(localStorage.getItem("contacted"));
-                val++;
-                localStorage.setItem("contacted", val.toString());
-            }
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('msg').value.trim();
-
-            if (!name || !email || !message) {
-                alert('Bitte fülle alle Felder aus.');
-                return;
-            }
-
-            emailjs.send('service_dqbm9ih', 'template_u9qc9wm', {
-                from_name: name,
-                from_email: email,
-                message: message
-            })
-                .then(function(response) {
-                    alert('Danke! Deine Nachricht wurde gesendet.');
-                    // Optional: Formular zurücksetzen
-                    document.querySelector('#contact form').reset();
-                }, function(error) {
-                    alert('Beim Senden ist ein Fehler aufgetreten. Bitte versuche es später erneut.');
-                    console.error('EmailJS Fehler:', error);
-                });
-        }
-    </script>
     <title>ENERTEE - TEE UP YOUR ENERGY</title>
 
 </head>
@@ -288,7 +242,9 @@
         <p class="copyright">&copy; 2025 ENERTEE. Alle Rechte vorbehalten. <a href="https://toaster.rf.gd/?i=1" style="text-decoration: none;" class="copyright">Unsere Partner.</a>
             <a href="impressum.html" class="copyright" style="text-decoration: none;">Impressum.</a> <a href="https://enertee.com/README.md" class="copyright" style="text-decoration: none;">Weitere Hinweise</a></p>
     </footer>
-    
     <script src="script.js"></script>
+
+    
     </body>
+
 </html>

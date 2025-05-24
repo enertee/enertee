@@ -1,5 +1,3 @@
-import emailjs from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-
 document.querySelectorAll('.toggle-btn').forEach(button => {
     button.addEventListener('click', () => {
         button.classList.toggle('active');
@@ -59,6 +57,46 @@ document.querySelectorAll('.toggle-btn').forEach(button => {
     });
 });
 
+
+function contact() {
+    if (!confirm("Sind sie sicher. Sie können nur noch " + (3-parseInt(localStorage.getItem("contacted"))) + " Nachrichten senden!")) {
+        return;
+    }
+    if (!localStorage.getItem("contacted")) {
+        localStorage.setItem("contacted", "0");
+    }
+
+    if (parseInt(localStorage.getItem("contacted")) >= 3) {
+        alert("Sie haben das Limit an möglichen Kontakten überschritten. Sie können uns aber manuell unter enertee.office@gmail.com erreichen.");
+        return;
+    } else {
+        let val = parseInt(localStorage.getItem("contacted"));
+        val++;
+        localStorage.setItem("contacted", val.toString());
+    }
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('msg').value.trim();
+
+    if (!name || !email || !message) {
+        alert('Bitte fülle alle Felder aus.');
+        return;
+    }
+
+    emailjs.send('service_dqbm9ih', 'template_u9qc9wm', {
+        from_name: name,
+        from_email: email,
+        message: message
+    })
+        .then(function(response) {
+            alert('Danke! Deine Nachricht wurde gesendet.');
+            // Optional: Formular zurücksetzen
+            document.querySelector('#contact form').reset();
+        }, function(error) {
+            alert('Beim Senden ist ein Fehler aufgetreten. Bitte versuche es später erneut.');
+            console.error('EmailJS Fehler:', error);
+        });
+}
 
 const products = [
     { name: "Kamillen Power", price: 1.10 },
