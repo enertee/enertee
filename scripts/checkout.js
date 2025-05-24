@@ -4,6 +4,8 @@ const products = [
   { name: "Elder Boost", price: 0.80 },
   { name: "Mint Refresh", price: 0.80 }
 ];
+
+let subtotal = 0;
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const itemsList = document.getElementById("checkout-items");
@@ -20,8 +22,6 @@ function getCartCounts() {
 function updateCheckoutView() {
   const counts = getCartCounts();
   itemsList.innerHTML = "";
-
-  let subtotal = 0;
 
   for (const [name, count] of Object.entries(counts)) {
     const product = products.find(p => p.name === name);
@@ -49,6 +49,8 @@ document.getElementById("apply-coupon").addEventListener("click", () => {
     alert("✔️ Rabatt aktiviert: 50%!");
     localStorage.setItem("discountApplied", "true");
     window.location.reload();
+  } else if (input === toAscii("d2hhdGRpZGlzcGVuZD8=")/*whatdidispend?*/) {
+    alert("Du hast gesamt " + localStorage.getItem("amountSpent") + " € ausgegeben.");
   } else if (input === "" || input !== toAscii("ZW5lcnRlZTUw")) {
     alert("Ungülitger Rabattcode!");
     localStorage.setItem("discountApplied", "false");
@@ -76,6 +78,11 @@ function submitPayment() {
     window.open("https://www.enertee.com/README.md", "_blank");
   }
   localStorage.removeItem("cart");
+  let stored = localStorage.getItem("amountSpent");
+  let amountSpent = stored !== null ? parseFloat(stored) : 0;
+  let newTotal = amountSpent + subtotal;
+  localStorage.setItem("amountSpent", newTotal.toFixed(2));
+
   closeCheckout();
 }
 
