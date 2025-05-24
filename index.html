@@ -16,6 +16,21 @@
         })();
 
         function contact() {
+            if (!confirm("Sind sie sicher. Sie können nur noch " + (3-parseInt(localStorage.getItem("contacted"))) + " Nachrichten senden!")) {
+                return;
+            }
+            if (!localStorage.getItem("contacted")) {
+                localStorage.setItem("contacted", "0");
+            }
+
+            if (parseInt(localStorage.getItem("contacted")) >= 3) {
+                alert("Sie haben das Limit an möglichen Kontakten überschritten. Sie können uns aber manuell unter enertee.office@gmail.com erreichen.");
+                return;
+            } else {
+                let val = parseInt(localStorage.getItem("contacted"));
+                val++;
+                localStorage.setItem("contacted", val.toString());
+            }
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('msg').value.trim();
