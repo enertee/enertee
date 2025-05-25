@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Enertee - Developer Page</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div id="login">
+        <h1>Login</h1>
+        <form id="login-form" action="scripts/script.php" method="POST" onsubmit="return encodeAndSubmit();">
+            <label for="name">Username: <input name="name" id="name" type="text" placeholder="HansPeter69"></input></label>
+            <label for="pw">Password: <input name="pw" id="pw" type="password" placeholder="IchMagMänner123!"></input></label>
+            <button type="submit">LogIn</button>
+        </form>
+    </div>
+    <script>
+        function encodeAndSubmit() {
+            const name = document.getElementById('name').value;
+            const pw = document.getElementById('pw').value;
+
+            const encodedName = btoa(name);
+            const encodedPw = btoa(pw);
+
+            document.getElementById('encoded_name').value = encodedName;
+            document.getElementById('encoded_pw').value = encodedPw;
+
+            document.getElementById('name').value = '';
+            document.getElementById('pw').value = '';
+
+            return true;
+        }
+    </script>
+</body>
+</html>
