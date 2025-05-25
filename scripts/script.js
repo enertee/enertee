@@ -59,43 +59,16 @@ document.querySelectorAll('.toggle-btn').forEach(button => {
 
 
 function contact() {
-    if (!confirm("Sind sie sicher. Sie können nur noch " + (3-parseInt(localStorage.getItem("contacted"))) + " Nachrichten senden!")) {
-        return;
-    }
-    if (!localStorage.getItem("contacted")) {
-        localStorage.setItem("contacted", "0");
-    }
+    const name = encodeURIComponent(document.getElementById('name').value);
+    const email = encodeURIComponent(document.getElementById('email').value);
+    const msg = encodeURIComponent(document.getElementById('msg').value);
 
-    if (parseInt(localStorage.getItem("contacted")) >= 3) {
-        alert("Sie haben das Limit an möglichen Kontakten überschritten. Sie können uns aber manuell unter enertee.office@gmail.com erreichen.");
-        return;
-    } else {
-        let val = parseInt(localStorage.getItem("contacted"));
-        val++;
-        localStorage.setItem("contacted", val.toString());
-    }
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('msg').value.trim();
+    const subject = `Message from ${name}`;
+    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${msg}`;
 
-    if (!name || !email || !message) {
-        alert('Bitte fülle alle Felder aus.');
-        return;
-    }
+    const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${body}`;
 
-    emailjs.send('service_dqbm9ih', 'template_u9qc9wm', {
-        from_name: name,
-        from_email: email,
-        message: message
-    })
-        .then(function(response) {
-            alert('Danke! Deine Nachricht wurde gesendet.');
-            // Optional: Formular zurücksetzen
-            document.querySelector('#contact form').reset();
-        }, function(error) {
-            alert('Beim Senden ist ein Fehler aufgetreten. Bitte versuche es später erneut.');
-            console.error('EmailJS Fehler:', error);
-        });
+    window.location.href = mailtoLink;
 }
 
 const products = [
