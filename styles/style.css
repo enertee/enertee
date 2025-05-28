@@ -497,6 +497,7 @@ a.youtube-link:hover { color: #cc0000; transform: scale(1.2); }
 #rezensionen > div:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transform: translateY(-5px);
+    /**/
 }
 
 @media (max-width: 768px) {
