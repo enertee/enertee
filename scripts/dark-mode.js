@@ -6,12 +6,14 @@ const savedTheme = localStorage.getItem('theme') || 'light';
 htmlElement.setAttribute('data-theme', savedTheme);
 toggle.checked = savedTheme === 'dark';
 
+if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    htmlElement.setAttribute('data-theme', 'dark');
+    toggle.checked = true;
+}
+
 // Event-Listener für den Switch
 toggle.addEventListener('change', function() {
-    if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        htmlElement.setAttribute('data-theme', 'dark');
-        toggle.checked = true;
-    }
+
     if(this.checked) {
         htmlElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
