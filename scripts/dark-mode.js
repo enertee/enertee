@@ -8,6 +8,10 @@ toggle.checked = savedTheme === 'dark';
 
 // Event-Listener für den Switch
 toggle.addEventListener('change', function() {
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        htmlElement.setAttribute('data-theme', 'dark');
+        toggle.checked = true;
+    }
     if(this.checked) {
         htmlElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
