@@ -146,7 +146,7 @@ function addToCart(name) {
   function showCart() {
       let cart = document.getElementById('cart-sidebar')
       
-      cart.style.display == "none" ? cart.style.display = "block" : cart.style.display = "none";
+      cart.style.display === "none" ? cart.style.display = "block" : cart.style.display = "none";
   }
   
   // Event Delegation für dynamische "In den Warenkorb"-Buttons

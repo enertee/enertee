@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light">
 <head>
-    <!--Version: 04.06.2025-->
+    <!--Version: 07.06.2025-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -9,40 +9,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
+    <!-- Neue CSS-Datei für Dark Mode -->
     <link rel="shortcut icon" href="assets/Logo.png" type="image/x-icon">
     <title>ENERTEE - TEE UP YOUR ENERGY</title>
+    <style>
+        /* Zusätzliches Styling für Dark-Mode-Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
 
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "☀️";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        input:checked + .slider {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        input:checked + .slider:before {
+            content: "🌙";
+            transform: translateX(26px);
+        }
+    </style>
 </head>
 <body>
-    <aside id="cart-sidebar" style="display: none;" hidden>
-        <button id="close" onclick="showCart()">x</button> 
-        <h3>Warenkorb</h3>
-        <ul id="cart-items" style="list-style: none; padding: 0;"></ul>
-        <p id="cart-total">Summe: 0.00 € (inkl. MwSt.)</p>
-        <a href="html/kassa.html">Zur Kassa</a>
-    </aside>
+<aside id="cart-sidebar" style="display: none; width: 40vw;" hidden>
+    <button id="close" onclick="showCart()">x</button>
+    <h3>Warenkorb</h3>
+    <ul id="cart-items" style="list-style: none; padding: 0;"></ul>
+    <p id="cart-total">Summe: 0.00 € (inkl. MwSt.)</p>
+    <button onclick="window.location.href = 'html/kassa.html'">Zur Kassa</button>
+</aside>
 
-    <header id="header">
-        <div class="logo">
-            ENERTEE
+<header id="header">
+    <div class="logo">
+        ENERTEE
+    </div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Produkte</a>
+        <a href="#about">Über uns</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Kontakt</a>
+        <button id="toggle-cart" title="Warenkorb anzeigen" aria-label="Warenkorb anzeigen" onclick="showCart()">
+            <i class="fas fa-shopping-cart"></i> Warenkorb
+        </button>
+        <!-- Dark Mode Switch -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="theme-toggle" title="Dark Mode umschalten" aria-label="Dark Mode umschalten">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+            </label>
         </div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#products">Produkte</a>
-            <a href="#about">Über uns</a>
-            <a href="#team">Team</a>
-            <a href="#contact">Kontakt</a>
-            <button id="toggle-cart" title="Warenkorb anzeigen" aria-label="Warenkorb anzeigen" onclick="showCart()">Dein Warenkorb</button>
-        </nav>
-    </header>
-    
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Natürliche Energie aus besten Zutaten</h1>
-            <p>Entdecke unsere vier einzigartigen Tee-Kreationen für nachhaltige Energie ohne Reue</p>
-            <a href="#products" class="btn">Zu den Produkten</a>
-        </div>
-    </section>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Natürliche Energie aus besten Zutaten</h1>
+        <p>Entdecke unsere vier einzigartigen Tee-Kreationen für nachhaltige Energie ohne Reue</p>
+        <a href="#products" class="btn">Zu den Produkten</a>
+    </div>
+</section>
 
 <section id="products">
     <h2>Unsere Sorten</h2>
@@ -81,7 +148,7 @@
                                 <li>Energie: 32kcal</li>
                                 <li>Kohlenhydrate: 8g</li>
                                 <li>davon Zucker: 8g</li>
-                               
+
                             </ul>
                         </div>
                     </div>
@@ -124,7 +191,7 @@
                 <p name="Felix die geile sau :)))">Ich finde es ist ein toller ersatzt zu den anderen überzuckerten energy Drinks. Ich liebe es!</p>
             </div>
         </div>
-        
+
         <!-- Produkt 2 - Ingredients links -->
         <div class="product-scroll-item">
             <div class="product-card">
@@ -159,7 +226,7 @@
                                 <li>Energie: 32kcal</li>
                                 <li>Kohlenhydrate: 8g</li>
                                 <li>davon Zucker: 8g</li>
-                               
+
                             </ul>
                         </div>
                     </div>
@@ -202,7 +269,7 @@
                 <p name="Thomas die geile sau :)))">Super Preis für eine super Qualität. Enertee ist der beste Enegy den ich jemals getrunken habe!</p>
             </div>
         </div>
-        
+
         <div class="product-scroll-item">
             <div class="product-card">
                 <div class="product-image-wrapper">
@@ -236,7 +303,7 @@
                                 <li>Energie: 32kcal</li>
                                 <li>Kohlenhydrate: 8g</li>
                                 <li>davon Zucker: 8g</li>
-                               
+
                             </ul>
                         </div>
                     </div>
@@ -254,7 +321,7 @@
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <p>Finde diesen Geschmack etwas zu süß aber trotzdem angemessener Preis./p>
+                <p>Finde diesen Geschmack etwas zu süß aber trotzdem angemessener Preis.</p>
             </div>
             <div>
                 <h4>Friedrich M.</h4>
@@ -279,7 +346,7 @@
                 <p name="Daniel die geile sau :)))">Super Preis für eine super Qualität. Enertee ist der beste Enegy den ich jemals getrunken habe!</p>
             </div>
         </div>
-        
+
         <div class="product-scroll-item">
             <div class="product-card">
                 <div class="product-image-wrapper">
@@ -357,7 +424,7 @@
         </div>
     </div>
 </section>
-    
+
     <section id="about">
         <h2>Über uns</h2>
         <div style="max-width: 800px; margin: 0 auto;">
@@ -365,7 +432,7 @@
             <p>Wir glauben an Nachhaltigkeit und faire Bedingungen entlang der gesamten Lieferkette. Alle unsere Zutaten stammen aus kontrolliertem Anbau und werden mit größter Sorgfalt verarbeitet. Das Getränk wird in Mehrweg Glasflaschen abgefüllt und dann CO2 sparend zu Ihnen nach Hause oder in die Geschäfte geliefert.</p>
         </div>
     </section>
-    
+
     <section id="team">
         <h2>Unser Team</h2>
         <div style="text-align: center;">
@@ -393,27 +460,28 @@
     </section>
 
 
-    <footer>
-        <div class="logo" style="margin-bottom: 20px;">
-            ENERTEE
-            <span>TEE UP YA ENERGY</span>
-        </div>
-        <div class="social-links">
-            <a href="https://www.instagram.com/enertee_drinks?igsh=d2V1ZGFqbnl4OGVj&utm_source=qr"
-               class="social-link instagram-link" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-            </a>
+<footer>
+    <div class="logo" style="margin-bottom: 20px;">
+        ENERTEE
+        <span>TEE UP YA ENERGY</span>
+    </div>
+    <div class="social-links">
+        <a href="https://www.instagram.com/enertee_drinks?igsh=d2V1ZGFqbnl4OGVj&utm_source=qr"
+           class="social-link instagram-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link facebook-link"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-link twitter-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link youtube-link"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p class="copyright">&copy; 2025 ENERTEE. Alle Rechte vorbehalten.
+        <a href="html/impressum.html" class="copyright" style="text-decoration: none;">Impressum.</a>
+        <a href="https://enertee.com/README.md" class="copyright" style="text-decoration: none;">Weitere Hinweise</a>
+    </p>
+</footer>
 
-            <a href="#" class="social-link facebook-link"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-link twitter-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link youtube-link"><i class="fab fa-youtube"></i></a>
-        </div>
-        <p class="copyright">&copy; 2025 ENERTEE. Alle Rechte vorbehalten. <!--<a href="https://toaster.rf.gd/?i=1" style="text-decoration: none;" class="copyright">Unsere Partner.</a>-->
-            <a href="html/impressum.html" class="copyright" style="text-decoration: none;">Impressum.</a> <a href="https://enertee.com/README.md" class="copyright" style="text-decoration: none;">Weitere Hinweise</a></p>
-    </footer>
-    <script src="scripts/script.js"></script>
-
-    
-    </body>
-
+<script src="scripts/script.js"></script>
+<!-- Neue JavaScript-Datei für Dark Mode -->
+<script src="scripts/dark-mode.js"></script>
+</body>
 </html>
