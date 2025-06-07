@@ -144,6 +144,9 @@ function addToCart(name) {
   }
 
   function showCart() {
+      if (isMobile()) {
+          window.location.href = "html/kassa.html";
+      }
       let cart = document.getElementById('cart-sidebar')
       
       cart.style.display === "none" ? cart.style.display = "block" : cart.style.display = "none";
@@ -156,6 +159,10 @@ function addToCart(name) {
       addToCart(name);
     }
   });
+
+function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+}
   
   // Initialisierung
   updateCartSidebar();
