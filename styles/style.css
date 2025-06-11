@@ -719,7 +719,7 @@ footer::before {
 }
 
 @media (max-width: 480px) {
-    #name, #email, #msg {
+    #contact {
         width: 85vw;
     }
     
