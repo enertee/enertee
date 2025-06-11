@@ -693,7 +693,7 @@ footer::before {
         padding: 30px;
     }
     
-    #name, #email, #msg {
+    #contact {
         width: 85vw;
     }
 
