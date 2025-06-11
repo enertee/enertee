@@ -693,7 +693,7 @@ footer::before {
         padding: 30px;
     }
     
-    #contact {
+    #name, #email, #msg {
         width: 718px;
     }
 
@@ -719,7 +719,7 @@ footer::before {
 }
 
 @media (max-width: 480px) {
-    #contact {
+    #name, #email, #msg {
         width: 430px;
     }
     
