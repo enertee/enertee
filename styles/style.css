@@ -694,7 +694,7 @@ footer::before {
     }
     
     #name, #email, #msg {
-        width: 718px;
+        width: 85vw;
     }
 
     #cart-sidebar {
@@ -720,7 +720,7 @@ footer::before {
 
 @media (max-width: 480px) {
     #name, #email, #msg {
-        width: 430px;
+        width: 85vw;
     }
     
     .logo {
