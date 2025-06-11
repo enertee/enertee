@@ -1,4 +1,4 @@
-In this file all the Versions and Changes of each day (aka. Version) are listed. Current (25.5.25)
+In this file all the Versions and Changes of each day (aka. Version) are listed. Current (11.6.25)
 
 24.05.25
     - Added new font 'Anton' for logo in style.css
@@ -21,3 +21,6 @@ In this file all the Versions and Changes of each day (aka. Version) are listed.
     - made style modern
     - added light/darkmode
     - bug fix
+
+11.06.2025
+    - added error 404
