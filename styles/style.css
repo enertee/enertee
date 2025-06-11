@@ -694,7 +694,7 @@ footer::before {
     }
     
     #contact {
-        width: 85vw;
+        width: 718px;
     }
 
     #cart-sidebar {
@@ -720,7 +720,7 @@ footer::before {
 
 @media (max-width: 480px) {
     #contact {
-        width: 85vw;
+        width: 430px;
     }
     
     .logo {
