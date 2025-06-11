@@ -719,6 +719,10 @@ footer::before {
 }
 
 @media (max-width: 480px) {
+    #name, #email, #msg {
+        width: 85vw;
+    }
+    
     .logo {
         font-size: 2rem;
         letter-spacing: .3rem;
