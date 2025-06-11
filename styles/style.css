@@ -692,6 +692,10 @@ footer::before {
     .product-ingredients {
         padding: 30px;
     }
+    
+    #name, #email, #msg {
+        width: 85vw;
+    }
 
     #cart-sidebar {
         width: 85%;
